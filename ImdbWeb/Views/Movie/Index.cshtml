@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MovieDAL.Movie>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+</head>
+<body>
+	<h1>Liste over alle filmer</h1>
+	<ul>
+		@foreach (var movie in Model)
+		{
+			<li>
+				@Html.ActionLink(movie.Title, "Details", new {id = movie.MovieId })
+			</li>
+		}
+	</ul>
+</body>
+</html>

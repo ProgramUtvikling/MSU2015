@@ -9,9 +9,12 @@ namespace ImdbWeb.Controllers
 	[RoutePrefix("Movie")]
     public class MovieController : Controller
     {
-		public string Index()
+		public ViewResult Index()
 		{
-			return "MovieController.Index";
+			var db = new MovieDAL.ImdbContext();
+			ViewData.Model = db.Movies;
+
+			return View();
 		}
 
 		public string Genres()
@@ -25,10 +28,14 @@ namespace ImdbWeb.Controllers
 			return $"MovieController.MoviesByGenre({genrename})";
 		}
 
-		public string Details(string id)
+		public ViewResult Details(string id)
 		{
-			//return string.Format("MovieController.Details({0})", id);
-			return $"MovieController.Details({id})";
+			var db = new MovieDAL.ImdbContext();
+
+			var movie = db.Movies.Find(id);
+			ViewData.Model = movie;
+
+			return View();
 		}
 
 	}
