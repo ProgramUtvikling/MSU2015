@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<MovieDAL.Movie>
 
 
-	<h1>Liste over alle filmer</h1>
-	<ul>
-		@foreach (var movie in Model)
-		{
-			<li>
-				@Html.ActionLink(movie.Title, "Details", new {id = movie.MovieId })
-			</li>
-		}
-	</ul>
+<h2>Liste over filmer</h2>
+<ul>
+	@foreach (var movie in Model)
+	{
+		<li>
+			@Html.ActionLink(movie.Title, "Details", new { id = movie.MovieId })
+		</li>
+	}
+</ul>

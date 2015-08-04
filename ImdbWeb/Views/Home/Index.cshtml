@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+	<li>@Html.ActionLink("All filmer", "Index", "Movie")</li>
+	<li>@Html.ActionLink("Sjangre", "Genres", "Movie")</li>
+</ul>
+
+<ul>
+	<li>@Html.ActionLink("Skuespillere", "Actors", "Person")</li>
+	<li>@Html.ActionLink("Produsenter", "Producers", "Person")</li>
+	<li>@Html.ActionLink("Regisører", "Directors", "Person")</li>
+</ul>
+

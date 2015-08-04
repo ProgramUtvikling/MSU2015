@@ -1,0 +1,32 @@
+﻿@model MovieDAL.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Name</h2>
+
+<h3>Spilt i</h3>
+<ul>
+	@foreach (var movie in Model.ActedMovies)
+	{
+		<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
+	}
+</ul>
+
+<h3>Produsert</h3>
+<ul>
+	@foreach (var movie in Model.ProducedMovies)
+	{
+		<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
+	}
+</ul>
+
+<h3>Regisert</h3>
+<ul>
+	@foreach (var movie in Model.DirectedMovies)
+	{
+		<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
+	}
+</ul>
+

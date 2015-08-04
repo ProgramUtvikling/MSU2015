@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieDAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,34 +10,33 @@ namespace ImdbWeb.Controllers
 	[RoutePrefix("Movie")]
     public class MovieController : Controller
     {
+		private ImdbContext Db = new MovieDAL.ImdbContext();
+
 		public ViewResult Index()
 		{
-			var db = new MovieDAL.ImdbContext();
-			ViewData.Model = db.Movies;
-
+			ViewData.Model = Db.Movies;
 			return View();
 		}
 
-		public string Genres()
+		public ViewResult Genres()
 		{
-			return "MovieController.Genres";
+			ViewData.Model = Db.Genres;
+			return View();
 		}
 
 		[Route("Genre/{genrename}")]
-		public string MoviesByGenre(string genrename)
+		public ViewResult MoviesByGenre(string genrename)
 		{
-			return $"MovieController.MoviesByGenre({genrename})";
+			ViewData.Model = Db.Movies.Where(m => m.Genre.Name == genrename);
+			return View("Index");
 		}
 
 		public ViewResult Details(string id)
 		{
-			var db = new MovieDAL.ImdbContext();
-
-			var movie = db.Movies.Find(id);
+			var movie = Db.Movies.Find(id);
 			ViewData.Model = movie;
 
 			return View();
 		}
-
 	}
 }

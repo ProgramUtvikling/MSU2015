@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MovieDAL.Genre>
+@{
+    ViewBag.Title = "Genres";
+}
+
+<h2>Sjangre</h2>
+<ul>
+	@foreach (var genre in Model)
+	{
+		<li>@Html.ActionLink(genre.Name, "MoviesByGenre", new { genrename = genre.Name })</li>
+	}
+</ul>
