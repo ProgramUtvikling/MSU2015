@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MovieDAL.Person>
+
+<p>Fra partial</p>
+<ul>
+	@foreach (var person in Model)
+	{
+		<li>@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)</li>
+	}
+</ul>

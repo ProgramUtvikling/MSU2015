@@ -1,4 +1,5 @@
-﻿using MovieDAL;
+﻿using ImdbWeb.Models.PersonModels;
+using MovieDAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Web.Mvc;
 
 namespace ImdbWeb.Controllers
 {
-    public class PersonController : Controller
-    {
+	public class PersonController : Controller
+	{
 		private ImdbContext Db = new MovieDAL.ImdbContext();
 
 		protected override void Dispose(bool disposing)
@@ -23,25 +24,42 @@ namespace ImdbWeb.Controllers
 
 		public ViewResult Actors()
 		{
-			ViewData.Model = from p in Db.Persons
-							 where p.ActedMovies.Any()
-							 select p;
+			var persons = from p in Db.Persons
+						  where p.ActedMovies.Any()
+						  select p;
 
+			ViewData.Model = new PersonIndexModel
+			{
+				Persons = persons,
+				Title = "Skuespillere"
+			};
 			return View("Index");
 		}
 		public ViewResult Producers()
 		{
-			ViewData.Model = from p in Db.Persons
-							 where p.ProducedMovies.Any()
-							 select p;
+			var persons = from p in Db.Persons
+						  where p.ProducedMovies.Any()
+						  select p;
+
+			ViewData.Model = new PersonIndexModel
+			{
+				Persons = persons,
+				Title = "Produsenter"
+			};
 
 			return View("Index");
 		}
 		public ViewResult Directors()
 		{
-			ViewData.Model = from p in Db.Persons
-							 where p.DirectedMovies.Any()
-							 select p;
+			var persons = from p in Db.Persons
+						  where p.DirectedMovies.Any()
+						  select p;
+
+			ViewData.Model = new PersonIndexModel
+			{
+				Persons = persons,
+				Title = "Regisører"
+			};
 
 			return View("Index");
 		}

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 
 namespace ImdbWeb.Helpers
 {
 	public static class MyHtmlHelpers
 	{
-		public static string PrettyJoin(this HtmlHelper html, IEnumerable<Person> persons)
+		public static MvcHtmlString PrettyJoin(this HtmlHelper html, IEnumerable<Person> persons)
 		{
 			int count = 0;
 			string res = "";
@@ -19,20 +20,20 @@ namespace ImdbWeb.Helpers
 				switch (++count)
 				{
 					case 1:
-						res = person.Name;
+						res = html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null).ToString();
 						break;
 
 					case 2:
-						res = person.Name + " og " + res;
+						res = html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null).ToString() + " og " + res;
 						break;
 
 					default:
-						res = person.Name + ", " + res;
+						res = html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null).ToString() + ", " + res;
 						break;
 				}
 			}
 
-			return res;
+			return MvcHtmlString.Create(res);
 		}
 	}
 }

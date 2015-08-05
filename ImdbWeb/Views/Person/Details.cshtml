@@ -1,32 +1,28 @@
 ﻿@model MovieDAL.Person
 
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
 }
+
+@helper MovieList(string title, IEnumerable<MovieDAL.Movie> movies)
+{
+if (movies.Any())
+{
+		<h3>@title</h3>
+		<p>Fra helper</p>
+		<ul>
+			@foreach (var movie in movies)
+		{
+				<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
+		}
+		</ul>
+	}
+}
+
+
 
 <h2>@Model.Name</h2>
 
-<h3>Spilt i</h3>
-<ul>
-	@foreach (var movie in Model.ActedMovies)
-	{
-		<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
-	}
-</ul>
-
-<h3>Produsert</h3>
-<ul>
-	@foreach (var movie in Model.ProducedMovies)
-	{
-		<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
-	}
-</ul>
-
-<h3>Regisert</h3>
-<ul>
-	@foreach (var movie in Model.DirectedMovies)
-	{
-		<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
-	}
-</ul>
-
+@MovieList("Spilt i", Model.ActedMovies)
+@MovieList("Produsert", Model.ProducedMovies)
+@MovieList("Regisert", Model.DirectedMovies)

@@ -1,13 +1,32 @@
-﻿@model IEnumerable<MovieDAL.Person>
+﻿@model ImdbWeb.Models.PersonModels.PersonIndexModel
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
+
+	var groups = from person in Model.Persons
+				 orderby person.Name
+				 group person by person.Name.Substring(0, 1).ToUpper() into g
+				 select new { FirstLetter = g.Key, Persons = g };
 }
 
-<h2>Personer</h2>
-<ul>
-	@foreach (var person in Model)
+<div>
+	@foreach (var group in groups)
 	{
-		<li>@Html.ActionLink(person.Name, "Details", new { id = person.PersonId })</li>
+		<a href="#@group.FirstLetter">@group.FirstLetter</a>
 	}
-</ul>
+</div>
+
+
+<h2>@Model.Title</h2>
+@foreach (var group in groups)
+{
+	<h3 id="@group.FirstLetter">@group.FirstLetter</h3>
+	<ul>
+		@foreach (var person in group.Persons)
+		{
+			<li>@Html.ActionLink(person.Name, "Details", new { id = person.PersonId })</li>
+		}
+	</ul>
+}
+
+
 
