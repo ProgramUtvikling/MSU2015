@@ -11,6 +11,16 @@ namespace ImdbWeb.Controllers
     {
 		private ImdbContext Db = new MovieDAL.ImdbContext();
 
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				Db.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+
+
 		public ViewResult Actors()
 		{
 			ViewData.Model = from p in Db.Persons

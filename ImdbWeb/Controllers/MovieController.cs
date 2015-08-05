@@ -8,9 +8,18 @@ using System.Web.Mvc;
 namespace ImdbWeb.Controllers
 {
 	[RoutePrefix("Movie")]
-    public class MovieController : Controller
-    {
+	public class MovieController : Controller
+	{
 		private ImdbContext Db = new MovieDAL.ImdbContext();
+
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				Db.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
 		public ViewResult Index()
 		{

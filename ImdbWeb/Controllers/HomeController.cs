@@ -6,11 +6,11 @@ using System.Web.Mvc;
 
 namespace ImdbWeb.Controllers
 {
-    public class HomeController : Controller
-    {
+	public class HomeController : Controller
+	{
 		public ViewResult Index()
 		{
 			return View();
 		}
-    }
+	}
 }
