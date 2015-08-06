@@ -1,0 +1,19 @@
+﻿@model ImdbWeb.Models.HomeModels.DemoModel
+
+@{
+	ViewBag.Title = "Demo";
+}
+
+<h2>Demo</h2>
+
+@using (Html.BeginForm())
+{
+	<text>
+		Overskrift: @Html.TextBoxFor(m => m.Overskrift)
+		<br />
+		Artikkel: @Html.TextAreaFor(m => m.Artikkel)
+		<br />
+		<button>Lagre</button>
+	</text>
+}
+

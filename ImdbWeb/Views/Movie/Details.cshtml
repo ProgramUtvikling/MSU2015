@@ -4,7 +4,8 @@
 <p>Originaltittel: @Model.OriginalTitle</p>
 
 <div>
-	<img src="@Url.Action("CreateImage", "Image", new { format = "medium", id=Model.MovieId })" />
+	@Cover.Medium(Model)
+	@*<img src="@Url.Action("CreateImage", "Image", new { format = "medium", id=Model.MovieId })" />*@
 </div>
 
 <p>Filmens varighet: @Model.RunningLength</p>

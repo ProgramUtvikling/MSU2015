@@ -27,8 +27,7 @@ namespace ImdbWeb.Controllers
 			var doc = from movie in Db.Movies
 					  select new { id = movie.MovieId, title = movie.Title };
 
-
-			return Json(doc);
+			return Json(doc, JsonRequestBehavior.AllowGet);
 		}
 
 		private ActionResult MoviesAsXml()

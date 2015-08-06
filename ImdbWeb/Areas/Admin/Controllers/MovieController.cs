@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ImdbWeb.Areas.Admin.Controllers
 {
+	[Authorize]
     public class MovieController : Controller
     {
         // GET: Admin/Movie

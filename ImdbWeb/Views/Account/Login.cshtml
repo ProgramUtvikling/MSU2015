@@ -1,17 +1,22 @@
-﻿
+﻿@model ImdbWeb.Models.AccountModels.LoginModel
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
 
-<form method="post">
-	<label for="username">Brukernavn:</label>
-	<input type="text" name="username" value="" id="username" />
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	@Html.LabelFor(m => m.Username)
+	@Html.EditorFor(m => m.Username)
 	<br />
-	<label for="pwd">Passord:</label>
-	<input type="password" name="password" value="" id="pwd" />
+	@Html.LabelFor(m => m.Password)
+	@Html.EditorFor(m => m.Password)
+	<br />
+	@Html.LabelFor(m => m.RememberMe)
+	@Html.EditorFor(m => m.RememberMe)
 	<br />
 	<button>Logg på!</button>
-</form>
-
+}

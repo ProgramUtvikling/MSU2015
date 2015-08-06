@@ -1,0 +1,31 @@
+﻿@model ImdbWeb.Models.HomeModels.DemoModel
+
+@{
+    ViewBag.Title = "DemoResult";
+}
+
+<h2>DemoResult</h2>
+
+<div>
+    <h4>DemoModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Overskrift)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Overskrift)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikkel)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Artikkel)
+        </dd>
+
+    </dl>
+</div>
+

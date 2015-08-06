@@ -20,10 +20,11 @@
 </ul>
 
 <ul>
-	<li>@Html.ActionLink("Logg på", "Login", "Account")</li>
-	<li>@Html.ActionLink("Logg av", "SignOut", "Account")</li>
+	<li>
+		@Html.Action("LoginStatus", "Account")
+	</li>
 </ul>
 
 <ul>
-	<li>@Html.ActionLink("Admin", "Movie", "Index", new { area = "Admin" }, null)</li>
+	<li>@Html.ActionLink("Admin", "Index", "Movie", new { area = "Admin" }, null)</li>
 </ul>

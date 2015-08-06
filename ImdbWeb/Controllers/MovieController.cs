@@ -1,7 +1,9 @@
 ﻿using MovieDAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,9 +19,9 @@ namespace ImdbWeb.Controllers
 			return View();
 		}
 
-		public ActionResult Genres()
+		public async Task<ActionResult> Genres()
 		{
-			ViewData.Model = Db.Genres;
+			ViewData.Model = await Db.Genres.ToListAsync();
 			return View();
 		}
 

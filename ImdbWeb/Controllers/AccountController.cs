@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImdbWeb.Models.AccountModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,13 +18,18 @@ namespace ImdbWeb.Controllers
         }
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		[AllowAnonymous]
-		public ActionResult Login(string username, string password)
+		public ActionResult Login(LoginModel model, string returnUrl)
 		{
-			if(username == "arjan" && password == "pass")
+			if(model.Username == "arjan" && model.Password == "pass")
 			{
-				FormsAuthentication.SetAuthCookie(username, false);
-				return RedirectToAction("Index", "Home");
+				FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+				if (string.IsNullOrWhiteSpace(returnUrl))
+				{
+					return RedirectToAction("Index", "Home");
+				}
+				return Redirect(returnUrl);
 			}
 
 			return View();
@@ -33,6 +39,18 @@ namespace ImdbWeb.Controllers
 		{
 			FormsAuthentication.SignOut();
 			return RedirectToAction("Index", "Home");
+		}
+
+		[ChildActionOnly]
+		public ActionResult LoginStatus()
+		{
+			if (Request.IsAuthenticated)
+			{
+				ViewData.Model = User.Identity.Name;
+				return PartialView("Authenticated");
+			}
+
+			return PartialView("NotAuthenticated");
 		}
 	}
 }

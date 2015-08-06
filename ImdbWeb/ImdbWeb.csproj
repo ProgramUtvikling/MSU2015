@@ -43,12 +43,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -682,6 +690,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\MyHtmlHelpers.cs" />
+    <Compile Include="Models\AccountModels\LoginModel.cs" />
+    <Compile Include="Models\HomeModels\DemoModel.cs" />
     <Compile Include="Models\PersonModels\PersonIndexModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -702,6 +712,10 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="App_Code\Cover.cshtml" />
+    <Content Include="Views\Account\Authenticated.cshtml" />
+    <Content Include="Views\Account\NotAuthenticated.cshtml" />
+    <Content Include="Views\Home\Demo.cshtml" />
+    <Content Include="Views\Home\DemoResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -713,9 +727,6 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Movie\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Views\Image\" />
-    <Folder Include="Views\ImdbApi\" />
-    <Folder Include="Views\ImdbControllerBase\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieDAL\MovieDAL.csproj">
