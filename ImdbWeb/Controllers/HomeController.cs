@@ -12,5 +12,10 @@ namespace ImdbWeb.Controllers
 		{
 			return View();
 		}
+
+		public ViewResult Demo()
+		{
+			throw new Exception();
+		}
 	}
 }

@@ -1,20 +1,18 @@
-﻿@using ImdbWeb.Helpers
-
-@model MovieDAL.Movie
+﻿@model Movie
 
 <h2>@Model.Title (@Model.ProductionYear)</h2>
 <p>Originaltittel: @Model.OriginalTitle</p>
+
+<div>
+	<img src="@Url.Action("CreateImage", "Image", new { format = "medium", id=Model.MovieId })" />
+</div>
+
 <p>Filmens varighet: @Model.RunningLength</p>
 <p>@Model.Description</p>
 
 <p>Regisører: @Html.PrettyJoin(Model.Directors)</p>
 <p>Produsenter: @Html.PrettyJoin(Model.Producers)</p>
 
-@*<h3>Regisører</h3>
-@Html.Partial("_PersonList", Model.Directors)
-
-<h3>Produsenter</h3>
-@Html.Partial("_PersonList", Model.Producers)*@
 
 <h3>Skuespillere</h3>
 @Html.Partial("_PersonList", Model.Actors)

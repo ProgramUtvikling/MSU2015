@@ -8,20 +8,8 @@ using System.Web.Mvc;
 
 namespace ImdbWeb.Controllers
 {
-	public class PersonController : Controller
+	public class PersonController : ImdbControllerBase
 	{
-		private ImdbContext Db = new MovieDAL.ImdbContext();
-
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				Db.Dispose();
-			}
-			base.Dispose(disposing);
-		}
-
-
 		public ViewResult Actors()
 		{
 			var persons = from p in Db.Persons

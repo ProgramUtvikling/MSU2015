@@ -8,33 +8,23 @@ using System.Web.Mvc;
 namespace ImdbWeb.Controllers
 {
 	[RoutePrefix("Movie")]
-	public class MovieController : Controller
+	public class MovieController : ImdbControllerBase
 	{
-		private ImdbContext Db = new MovieDAL.ImdbContext();
-
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				Db.Dispose();
-			}
-			base.Dispose(disposing);
-		}
-
-		public ViewResult Index()
+		[OutputCache(CacheProfile="short")]
+		public ActionResult Index()
 		{
 			ViewData.Model = Db.Movies;
 			return View();
 		}
 
-		public ViewResult Genres()
+		public ActionResult Genres()
 		{
 			ViewData.Model = Db.Genres;
 			return View();
 		}
 
 		[Route("Genre/{genrename}")]
-		public ViewResult MoviesByGenre(string genrename)
+		public ActionResult MoviesByGenre(string genrename)
 		{
 			ViewData.Model = Db.Movies.Where(m => m.Genre.Name == genrename);
 			ViewBag.Sjanger = genrename;
@@ -42,9 +32,12 @@ namespace ImdbWeb.Controllers
 			return View("Index");
 		}
 
-		public ViewResult Details(string id)
+		public ActionResult Details(string id)
 		{
 			var movie = Db.Movies.Find(id);
+			if (movie == null) return HttpNotFound();
+
+
 			ViewData.Model = movie;
 
 			return View();

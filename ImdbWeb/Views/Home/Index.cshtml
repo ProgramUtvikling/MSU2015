@@ -1,12 +1,15 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
 <ul>
-	<li>@Html.ActionLink("All filmer", "Index", "Movie")</li>
+	<li>
+		@Html.ActionLink("All filmer", "Index", "Movie")
+		(@Html.ActionLink("xml", "Movies", "ImdbApi")/@Html.ActionLink("json", "Movies", "ImdbApi", new { fmt = "json"}, null))
+	</li>
 	<li>@Html.ActionLink("Sjangre", "Genres", "Movie")</li>
 </ul>
 
@@ -16,3 +19,11 @@
 	<li>@Html.ActionLink("Regisører", "Directors", "Person")</li>
 </ul>
 
+<ul>
+	<li>@Html.ActionLink("Logg på", "Login", "Account")</li>
+	<li>@Html.ActionLink("Logg av", "SignOut", "Account")</li>
+</ul>
+
+<ul>
+	<li>@Html.ActionLink("Admin", "Movie", "Index", new { area = "Admin" }, null)</li>
+</ul>

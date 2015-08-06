@@ -1,0 +1,15 @@
+﻿@helper Image(string format, MovieDAL.Movie movie)
+{
+var url = new System.Web.Mvc.UrlHelper(Request.RequestContext);
+	<img src="@url.Action("CreateImage", "Image", new { format, id = movie.MovieId })" alt="Cover for @movie.Title" />
+}
+
+@helper Medium(MovieDAL.Movie movie)
+{
+	@Image("Medium", movie);
+}
+
+@helper Thumb(MovieDAL.Movie movie)
+{
+	@Image("Thumb", movie);
+}

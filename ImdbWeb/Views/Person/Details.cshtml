@@ -13,7 +13,10 @@ if (movies.Any())
 		<ul>
 			@foreach (var movie in movies)
 		{
-				<li>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)</li>
+				<li>
+					<img src="@Url.Action("CreateImage", "Image", new { format = "Thumb", id = movie.MovieId })" alt="Cover for @movie.Title" />
+					@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
+				</li>
 		}
 		</ul>
 	}
