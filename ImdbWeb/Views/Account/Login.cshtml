@@ -11,12 +11,15 @@
 
 	@Html.LabelFor(m => m.Username)
 	@Html.EditorFor(m => m.Username)
+	@Html.ValidationMessageFor(m => m.Username)
 	<br />
 	@Html.LabelFor(m => m.Password)
 	@Html.EditorFor(m => m.Password)
+	@Html.ValidationMessageFor(m => m.Password)
 	<br />
 	@Html.LabelFor(m => m.RememberMe)
 	@Html.EditorFor(m => m.RememberMe)
+	@Html.ValidationMessageFor(m => m.RememberMe)
 	<br />
 	<button>Logg på!</button>
 }

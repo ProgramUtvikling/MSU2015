@@ -8,30 +8,34 @@ using System.Web.Security;
 
 namespace ImdbWeb.Controllers
 {
-    public class AccountController : Controller
-    {
+	public class AccountController : Controller
+	{
 		[HttpGet]
 		[AllowAnonymous]
-        public ActionResult Login()
-        {
-            return View();
-        }
+		public ActionResult Login()
+		{
+			return View();
+		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[AllowAnonymous]
 		public ActionResult Login(LoginModel model, string returnUrl)
 		{
-			if(model.Username == "arjan" && model.Password == "pass")
+			if (ModelState.IsValid)
 			{
-				FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
-				if (string.IsNullOrWhiteSpace(returnUrl))
-				{
-					return RedirectToAction("Index", "Home");
-				}
-				return Redirect(returnUrl);
-			}
 
+				if (model.Username == "arjan" && model.Password == "pass")
+				{
+					FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+					if (string.IsNullOrWhiteSpace(returnUrl))
+					{
+						return RedirectToAction("Index", "Home");
+					}
+					return Redirect(returnUrl);
+				}
+
+			}
 			return View();
 		}
 

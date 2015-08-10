@@ -670,8 +670,21 @@
     <Content Include="App_Data\covers\8717418276218.jpg" />
     <Content Include="App_Data\covers\8717418306373.jpg" />
     <Content Include="App_Data\covers\8717418314637.jpg" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\Styles.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\Movie\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Delete.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -679,6 +692,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieController.cs" />
+    <Compile Include="Areas\Admin\Models\MovieModels\MovieCreateModel.cs" />
+    <Compile Include="Areas\Admin\Models\MovieModels\MovieDeleteModel.cs" />
+    <Compile Include="Areas\Admin\Models\MovieModels\MovieIndexModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
@@ -716,6 +732,13 @@
     <Content Include="Views\Account\NotAuthenticated.cshtml" />
     <Content Include="Views\Home\Demo.cshtml" />
     <Content Include="Views\Home\DemoResult.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\DisplayTemplates\Duration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -723,11 +746,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Movie\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MovieDAL\MovieDAL.csproj">
       <Project>{bfa4a673-6f82-43d9-a055-609cc34438d4}</Project>
