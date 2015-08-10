@@ -84,14 +84,15 @@ namespace ImdbWeb.Areas.Admin.Controllers
 
 		[HttpDelete]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(string id, string søppel)
+		[ActionName("Delete")]
+		public async Task<ActionResult> DeleteConfirmed(string id)
 		{
 			var movie = Db.Movies.Find(id);
 			if (movie == null) return HttpNotFound();
 
 			Db.Movies.Remove(movie);
-			Db.SaveChanges();
-			
+			await Db.SaveChangesAsync();
+
 			return RedirectToAction("Index");
 		}
 	}

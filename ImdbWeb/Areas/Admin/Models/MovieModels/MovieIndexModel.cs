@@ -15,7 +15,7 @@ namespace ImdbWeb.Areas.Admin.Models.MovieModels
 		public string Title { get; set; }
 
 		[Display(Name="Varighet")]
-		//[UIHint("Duration")]
+		[UIHint("Duration")]
 		public int RunningLength { get; set; }
 	}
 }

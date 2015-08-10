@@ -8,7 +8,7 @@
 	@*<img src="@Url.Action("CreateImage", "Image", new { format = "medium", id=Model.MovieId })" />*@
 </div>
 
-<p>Filmens varighet: @Model.RunningLength</p>
+<p>Filmens varighet:  @Html.DisplayFor(m => m.RunningLength, "Duration") </p>
 <p>@Model.Description</p>
 
 <p>Regisører: @Html.PrettyJoin(Model.Directors)</p>
