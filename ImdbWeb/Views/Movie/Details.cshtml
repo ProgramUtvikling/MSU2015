@@ -3,9 +3,23 @@
 <h2>@Model.Title (@Model.ProductionYear)</h2>
 <p>Originaltittel: @Model.OriginalTitle</p>
 
+<section id="rating">
+	@using (Ajax.BeginForm("Vote", "Rating", new { movieId = Model.MovieId }, new AjaxOptions { UpdateTargetId = "rating" }))
+	{
+		<text>
+			@Html.AntiForgeryToken()
+
+			<button name="vote" value="1">1</button>
+			<button name="vote" value="2">2</button>
+			<button name="vote" value="3">3</button>
+			<button name="vote" value="4">4</button>
+			<button name="vote" value="5">5</button>
+		</text>
+	}
+</section>
+
 <div>
 	@Cover.Medium(Model)
-	@*<img src="@Url.Action("CreateImage", "Image", new { format = "medium", id=Model.MovieId })" />*@
 </div>
 
 <p>Filmens varighet:  @Html.DisplayFor(m => m.RunningLength, "Duration") </p>
@@ -17,3 +31,31 @@
 
 <h3>Skuespillere</h3>
 @Html.Partial("_PersonList", Model.Actors)
+
+<section id="commenting">
+	@using (Ajax.BeginForm("Commenting", new { id = Model.MovieId }, new AjaxOptions
+	{
+		UpdateTargetId = "commenting",
+		LoadingElementId = "waiting",
+		InsertionMode = InsertionMode.InsertAfter,
+		OnSuccess = "$('#commenting>form')[0].reset();"
+	}))
+	{
+		<text>
+			@Html.AntiForgeryToken()
+			@Html.TextBox("author") sier @Html.TextBox("headline")
+			<br />
+			@Html.TextArea("body", new { rows = 4, cols = 40 })
+			<button>Legg inn!</button>
+		</text>
+	}
+
+	<div id="waiting" style="display: none;">
+		<img src="~/Content/spinner.gif" />
+		Vi venter på svar fra serveren...
+	</div>
+	@foreach (var comment in Model.Comments)
+	{
+		@Html.Partial("Comment", comment)
+	}
+</section>

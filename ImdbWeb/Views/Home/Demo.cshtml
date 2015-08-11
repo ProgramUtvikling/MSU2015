@@ -6,7 +6,7 @@
 
 <h2>Demo</h2>
 
-@using (Html.BeginForm())
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "cph" }))
 {
 	<text>
 		Overskrift: @Html.TextBoxFor(m => m.Overskrift)
@@ -17,3 +17,8 @@
 	</text>
 }
 
+<hr />
+<div id="cph">
+	Her kommer innholdet!
+</div>
+<hr />

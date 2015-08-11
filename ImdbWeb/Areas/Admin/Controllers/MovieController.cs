@@ -69,6 +69,16 @@ namespace ImdbWeb.Areas.Admin.Controllers
 			return ValidationResult.Success;
 		}
 
+		[HttpPost]
+		public JsonResult CheckIdRemote(string id)
+		{
+			if (Db.Movies.Any(m => m.MovieId == id))
+			{
+				return Json("Filmen er allerede registrert (remote)");
+			}
+			return Json(true);
+		}
+
 		public ActionResult Delete(string id)
 		{
 			var movie = Db.Movies.Find(id);

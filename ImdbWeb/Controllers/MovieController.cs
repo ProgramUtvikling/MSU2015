@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -39,10 +41,34 @@ namespace ImdbWeb.Controllers
 			var movie = Db.Movies.Find(id);
 			if (movie == null) return HttpNotFound();
 
-
 			ViewData.Model = movie;
 
+			if (Request.IsAjaxRequest())
+			{
+				return PartialView();
+			}
 			return View();
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> Commenting(string id, string author, string headline, string body)
+		{
+			var movie = Db.Movies.Find(id);
+			if (movie == null) return HttpNotFound();
+
+			var comment = new Comment { Author = author, Headline = headline, Body = body };
+			movie.Comments.Add(comment);
+			await Db.SaveChangesAsync();
+			await Task.Delay(3000);
+
+			ViewData.Model = comment;
+
+			if (Request.IsAjaxRequest())
+			{
+				return PartialView("Comment");
+			}
+			return RedirectToAction("Details", "Movie", new { id });
 		}
 	}
 }

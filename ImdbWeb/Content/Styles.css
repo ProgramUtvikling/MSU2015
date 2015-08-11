@@ -3,3 +3,7 @@
 	background: linear-gradient(180deg, lightgray 0, white 100%) no-repeat;
 	background-size: 100% 70px;
 }
+
+#rating{
+	height: 6em;
+}

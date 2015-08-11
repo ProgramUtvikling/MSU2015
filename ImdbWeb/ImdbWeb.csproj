@@ -670,9 +670,14 @@
     <Content Include="App_Data\covers\8717418276218.jpg" />
     <Content Include="App_Data\covers\8717418306373.jpg" />
     <Content Include="App_Data\covers\8717418314637.jpg" />
+    <Content Include="Content\spinner.gif" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\popup.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\star-off.png" />
+    <Content Include="Content\star-on.png" />
+    <Content Include="Content\star-pending.png" />
     <Content Include="Content\Styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -681,10 +686,19 @@
     <Content Include="Areas\Admin\Views\Movie\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Movie\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Movie\Delete.cshtml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\popup.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -702,6 +716,7 @@
     <Compile Include="Controllers\ImdbControllerBase.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -709,6 +724,7 @@
     <Compile Include="Models\AccountModels\LoginModel.cs" />
     <Compile Include="Models\HomeModels\DemoModel.cs" />
     <Compile Include="Models\PersonModels\PersonIndexModel.cs" />
+    <Compile Include="Models\RatingModels\RatingModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -723,7 +739,6 @@
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Person\Details.cshtml" />
     <Content Include="Views\Movie\_PersonList.cshtml" />
-    <Content Include="Views\Movie\MovieNotFound.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -737,8 +752,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\DisplayTemplates\Duration.cshtml" />
+    <Content Include="Views\Rating\VoteResult.cshtml" />
+    <Content Include="Views\Rating\_VoteResult.cshtml" />
+    <Content Include="Views\Movie\Comment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

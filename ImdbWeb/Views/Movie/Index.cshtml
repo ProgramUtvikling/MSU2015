@@ -4,7 +4,7 @@
 <h2>Liste over filmer</h2>
 <h3>@ViewBag.Sjanger</h3>
 <ul>
-	@foreach (var movie in Model)
+	@foreach (var movie in Model.OrderBy(m => m.Title))
 	{
 		<li>
 			@Html.ActionLink(movie.Title, "Details", new { id = movie.MovieId })
