@@ -1,9 +1,38 @@
-﻿body {
+﻿@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+
+body {
 	font-family: sans-serif;
-	background: linear-gradient(180deg, lightgray 0, white 100%) no-repeat;
+	background: linear-gradient(lightgray 0px, transparent 100%) no-repeat;
 	background-size: 100% 70px;
 }
 
-#rating{
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Indie Flower', sans-serif;
+}
+#main {
+	width: 900px;
+	margin: 0 auto;
+	border: thin solid black;
+	border-radius: 4px;
+	background-color: white;
+	padding: 1em;
+	box-shadow: 0 0 2em hsla(0,0%,0%, .5);
+
+}
+
+
+#rating {
 	height: 6em;
+}
+
+
+@media(max-width: 920px) {
+	#main{
+		width: 90%;
+	}
+}
+@media(max-width: 600px) {
+	ul{
+		background-color: red;
+	}
 }

@@ -2,7 +2,6 @@
 @{
 	ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
 
 <ul>
@@ -14,17 +13,17 @@
 </ul>
 
 <ul>
-	<li>@Html.ActionLink("Skuespillere", "Actors", "Person")</li>
+	<li class="myclass1">@Html.ActionLink("Skuespillere", "Actors", "Person")</li>
 	<li>@Html.ActionLink("Produsenter", "Producers", "Person")</li>
 	<li>@Html.ActionLink("Regisører", "Directors", "Person")</li>
 </ul>
 
-<ul>
+<ul class="myclass2 myclass3">
 	<li>
 		@Html.Action("LoginStatus", "Account")
 	</li>
 </ul>
 
-<ul>
+<ul id="myId">
 	<li>@Html.ActionLink("Admin", "Index", "Movie", new { area = "Admin" }, null)</li>
 </ul>

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
 <html>
     <head>
         <title>IMDB</title>
@@ -6,12 +8,16 @@
 		<link href="~/Content/popup.css" rel="stylesheet" />
     </head>
 <body>
-	@RenderBody()
+	<div id="main">
+		@RenderBody()
+	</div>
 	<footer>
 		<p>Copyright &copy; 2015 Meg Selv</p>
 	</footer>
-	<script src="~/Scripts/jquery-2.1.4.min.js"></script>
-	<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-	<script src="~/Scripts/popup.js"></script>
+
+	@Scripts.Render("~/bundles/allscripts")
+
+	@RenderSection("scripts", false)
+
 </body>
 </html>

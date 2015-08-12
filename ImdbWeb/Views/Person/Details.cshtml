@@ -16,12 +16,12 @@ var options = new AjaxOptions
 
 if (movies.Any())
 {
-        <h3>@title</h3>
-        <p>Fra helper</p>
-        <ul>
+		<h3>@title</h3>
+		<p>Fra helper</p>
+		<ul>
 			@foreach (var movie in movies)
-        {
-                <li>
+			{
+				<li>
 					@Cover.Thumb(movie)
 					@Ajax.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, options)
 				</li>
@@ -35,3 +35,9 @@ if (movies.Any())
 @MovieList("Spilt i", Model.ActedMovies)
 @MovieList("Produsert", Model.ProducedMovies)
 @MovieList("Regisert", Model.DirectedMovies)
+
+
+@section scripts{
+}
+
+
