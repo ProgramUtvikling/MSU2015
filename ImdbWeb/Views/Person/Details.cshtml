@@ -6,16 +6,16 @@
 
 @helper MovieList(string title, IEnumerable<MovieDAL.Movie> movies)
 {
-var options = new AjaxOptions
-{
-	UpdateTargetId = "popup",
-	OnBegin = "dimBackground()",
-	OnSuccess = "showPopup()",
-	OnFailure = "resetBackground()"
-};
+	var options = new AjaxOptions
+	{
+		UpdateTargetId = "popup",
+		OnBegin = "dimBackground()",
+		OnSuccess = "showPopup()",
+		OnFailure = "resetBackground()"
+	};
 
-if (movies.Any())
-{
+	if (movies.Any())
+	{
 		<h3>@title</h3>
 		<p>Fra helper</p>
 		<ul>
@@ -30,14 +30,11 @@ if (movies.Any())
 	}
 }
 
-<h2>@Model.Name</h2>
+<article id="person-details">
+	<h2>@Model.Name</h2>
 
-@MovieList("Spilt i", Model.ActedMovies)
-@MovieList("Produsert", Model.ProducedMovies)
-@MovieList("Regisert", Model.DirectedMovies)
-
-
-@section scripts{
-}
-
+	@MovieList("Spilt i", Model.ActedMovies)
+	@MovieList("Produsert", Model.ProducedMovies)
+	@MovieList("Regisert", Model.DirectedMovies)
+</article>
 

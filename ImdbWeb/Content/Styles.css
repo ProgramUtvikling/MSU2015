@@ -4,11 +4,20 @@ body {
 	font-family: sans-serif;
 	background: linear-gradient(lightgray 0px, transparent 100%) no-repeat;
 	background-size: 100% 70px;
+	padding: 0;
 }
 
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Indie Flower', sans-serif;
 }
+
+ul{
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+
 #main {
 	width: 900px;
 	margin: 0 auto;
@@ -20,19 +29,98 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
+@media(max-width: 950px) {
+	#main{
+		width: calc(100% - 34px);
+		margin: 0;
+	}
+}
 
-#rating {
+#movie-details{
+	overflow: hidden;
+}
+
+#movie-details #rating {
 	height: 6em;
 }
 
+#movie-details aside{
+	float: right;
+	width: 300px;
+	padding: 10px;
+	background: lightgray;
+	border: thin solid gray;
+}
 
-@media(max-width: 920px) {
-	#main{
-		width: 90%;
+#movie-details aside h2{
+	font-size: 1em;
+}
+
+@media(max-width: 720px){
+	#movie-details aside{
+		float: none;
+		width: calc(100% - 22px);
 	}
 }
-@media(max-width: 600px) {
-	ul{
-		background-color: red;
+
+@media(max-width: 388px){
+	#movie-details aside img{
+		width: 100%;
 	}
+}
+
+
+
+#person-details h3{
+	clear: both;
+}
+
+#person-details ul {
+	overflow: hidden;
+}
+
+#person-details li{
+	float: left;
+	width: 33%;
+	height: 200px;
+}
+
+@media(max-width: 800px){
+	#person-details li{
+		width: 50%;
+	}
+}
+
+@media(max-width: 500px){
+	#person-details li{
+		width: 100%;
+	}
+}
+
+#person-details li img{
+	display: block;
+	margin: 0 auto;
+}
+
+#person-details li a{
+	display: block;
+	text-align: center;
+}
+
+
+
+
+.star {
+	background-image: url('/Content/star-pending.png');
+	width: 21px;
+	height: 21px;
+	border: none;
+}
+
+*:hover > .star {
+	background-image: url('star-on.png');
+}
+
+.star:hover ~ .star {
+	background-image: url('star-off.png');
 }
