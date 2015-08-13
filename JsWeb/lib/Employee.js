@@ -1,6 +1,13 @@
-﻿function Employee(firstname, lastname, birthyear, department) {
-	Person.apply(this, arguments)
-	this.department = department;
-}
+﻿define(["Person"], function (Person) {
 
-Employee.prototype = Object.create(Person.prototype);
+	var Employee = function (firstname, lastname, birthyear, department) {
+		Person.apply(this, arguments)
+		this.department = department;
+	};
+
+	Employee.prototype = Object.create(Person.prototype);
+
+	return Employee;
+
+});
+
