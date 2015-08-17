@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<h1>Demo!</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Tittel</th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: $data">
+			<tr>
+				<td data-bind="text: id"></td>
+				<td data-bind="text: title"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script src="Scripts/jquery-2.1.4.min.js"></script>
+	<script src="bower_components/knockout/dist/knockout.js"></script>
+	<script>
+
+		$.ajax({
+			url: '/ImdbApi/Movies?fmt=json'
+		}).then(function (movies) {
+			ko.applyBindings(movies);
+		}, function (error) {
+			console.log(error);
+		});
+
+	</script>
+</body>
+</html>

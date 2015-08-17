@@ -696,6 +696,7 @@
     <Content Include="Content\star-on.png" />
     <Content Include="Content\star-pending.png" />
     <Content Include="Content\Styles.css" />
+    <Content Include="Demo.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
