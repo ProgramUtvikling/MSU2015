@@ -1,13 +1,12 @@
 ﻿/// <reference path="~/Scripts/jquery-1.4.1.js" />
 
-$(setupPopup);
-
-function setupPopup() {
-	window.popupPlaceholder = $('<div id="popup" />').prependTo('body').hide();
-	window.popupBackgroundPlaceholder = $('<div id="popupBackground" />').prependTo('body').hide();
+$(function () {
+	window.popupPlaceholder = $('<div id="popup"></div>').prependTo('body').hide();
+	window.popupBackgroundPlaceholder = $('<div id="popupBackground"></div>').prependTo('body').hide();
 
 	window.popupBackgroundPlaceholder.click(resetBackground);
-}
+});
+
 
 function dimBackground() {
 	popupBackgroundPlaceholder.css({ "opacity": "0.75" }).fadeIn("fast");

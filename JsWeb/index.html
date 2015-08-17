@@ -5,7 +5,40 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-	<h1>Hello</h1>
-	<script data-main="/lib/main" src="bower_components/requirejs/require.js"></script>
+	<h2>Hello</h2>
+	<p>
+		Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+	</p>
+
+	<h2>Overskrift</h2>
+	<ul>
+		<li><button>Trykk her!</button></li>
+		<li><button>Trykk her!</button></li>
+		<li><button>Trykk her!</button></li>
+		<li><button>Trykk her!</button></li>
+		<li><button>Trykk her!</button></li>
+	</ul>
+
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script>
+		//$(document).on('ready', function () {
+		//$(document).ready(function () {
+		$(function () {
+
+			$('ul').on('click', 'button', function () {
+				console.log("You clicked!");
+			});
+
+			$('ul').append('<li><button>ny knapp</button></li>');
+
+			$('h2')
+				.next().css({ background: 'red' })
+				.prev().fadeOut(1000);
+
+		});
+	</script>
+
+
+	<!--<script data-main="/lib/main" src="bower_components/requirejs/require.js"></script>-->
 </body>
 </html>
