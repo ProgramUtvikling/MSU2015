@@ -7,16 +7,22 @@ body {
 	padding: 0;
 }
 
-h1,h2,h3,h4,h5,h6{
+body > footer > p {
+	text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
 	font-family: 'Indie Flower', sans-serif;
 }
 
-ul{
+ul {
 	padding: 0;
 }
-li{
+
+li {
 	list-style: none;
 }
+
 
 #main {
 	width: 900px;
@@ -26,52 +32,51 @@ li{
 	background-color: white;
 	padding: 1em;
 	box-shadow: 0 0 2em hsla(0,0%,0%, .5);
-
 }
 
 @media(max-width: 950px) {
-	#main{
+	#main {
 		width: calc(100% - 34px);
 		margin: 0;
 	}
 }
 
-#movie-details{
+#movie-details {
 	overflow: hidden;
 }
 
-#movie-details #rating {
-	height: 6em;
-}
+	#movie-details #rating {
+		height: 6em;
+	}
 
-#movie-details aside{
-	float: right;
-	width: 300px;
-	padding: 10px;
-	background: lightgray;
-	border: thin solid gray;
-}
+	#movie-details aside {
+		float: right;
+		width: 300px;
+		padding: 10px;
+		background: lightgray;
+		border: thin solid gray;
+	}
 
-#movie-details aside h2{
-	font-size: 1em;
-}
+		#movie-details aside h2 {
+			font-size: 1em;
+		}
 
-@media(max-width: 720px){
-	#movie-details aside{
+@media(max-width: 720px) {
+	#movie-details aside {
 		float: none;
 		width: calc(100% - 22px);
 	}
 }
 
-@media(max-width: 388px){
-	#movie-details aside img{
+@media(max-width: 388px) {
+	#movie-details aside img {
 		width: 100%;
 	}
 }
 
 
 
-#person-details h3{
+#person-details h3 {
 	clear: both;
 }
 
@@ -79,30 +84,30 @@ li{
 	overflow: hidden;
 }
 
-#person-details li{
+#person-details li {
 	float: left;
 	width: 33%;
 	height: 200px;
 }
 
-@media(max-width: 800px){
-	#person-details li{
+@media(max-width: 800px) {
+	#person-details li {
 		width: 50%;
 	}
 }
 
-@media(max-width: 500px){
-	#person-details li{
+@media(max-width: 500px) {
+	#person-details li {
 		width: 100%;
 	}
 }
 
-#person-details li img{
+#person-details li img {
 	display: block;
 	margin: 0 auto;
 }
 
-#person-details li a{
+#person-details li a {
 	display: block;
 	text-align: center;
 }
@@ -124,10 +129,10 @@ li{
 	background-image: url('star-off.png');
 }
 
-.js #person-details h3{
+.js #person-details h3 {
 	cursor: pointer;
 }
 
-.js #person-details h3 + ul{
-	display: none;
-}
+	.js #person-details h3 + ul {
+		display: none;
+	}
