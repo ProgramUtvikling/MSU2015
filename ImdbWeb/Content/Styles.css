@@ -109,7 +109,6 @@ li{
 
 
 
-
 .star {
 	background-image: url('/Content/star-pending.png');
 	width: 21px;
@@ -123,4 +122,12 @@ li{
 
 .star:hover ~ .star {
 	background-image: url('star-off.png');
+}
+
+.js #person-details h3{
+	cursor: pointer;
+}
+
+.js #person-details h3 + ul{
+	display: none;
 }

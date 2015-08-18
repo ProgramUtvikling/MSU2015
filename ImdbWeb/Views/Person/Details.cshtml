@@ -17,7 +17,6 @@
 	if (movies.Any())
 	{
 		<h3>@title</h3>
-		<p>Fra helper</p>
 		<ul>
 			@foreach (var movie in movies)
 			{
@@ -37,4 +36,8 @@
 	@MovieList("Produsert", Model.ProducedMovies)
 	@MovieList("Regisert", Model.DirectedMovies)
 </article>
+
+@section Scripts{
+	<script src="/Scripts/PersonDetails.js"></script>
+}
 
