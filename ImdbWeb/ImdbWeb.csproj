@@ -163,6 +163,12 @@
     <Content Include="Areas\Admin\Views\Movie\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Movie\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Movie\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\msu2015.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -186,7 +192,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Test1Controller.cs" />
     <Compile Include="Areas\Admin\Models\MovieModels\MovieCreateModel.cs" />
     <Compile Include="Areas\Admin\Models\MovieModels\MovieDeleteModel.cs" />
     <Compile Include="Areas\Admin\Models\MovieModels\MovieIndexModel.cs" />
@@ -256,7 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Areas\Admin\Views\Test1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

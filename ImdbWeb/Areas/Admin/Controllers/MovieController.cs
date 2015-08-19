@@ -53,6 +53,7 @@ namespace ImdbWeb.Areas.Admin.Controllers
 
 				Db.Movies.Add(movie);
 				await Db.SaveChangesAsync();
+
 				return RedirectToAction("Index");
 			}
 
