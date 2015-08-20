@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201403101644126_Initial.Designer.cs">
       <DependentUpon>201403101644126_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508201113228_AddColToRating.cs" />
+    <Compile Include="Migrations\201508201113228_AddColToRating.Designer.cs">
+      <DependentUpon>201508201113228_AddColToRating.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Genre.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201403101644126_Initial.resx">
       <DependentUpon>201403101644126_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508201113228_AddColToRating.resx">
+      <DependentUpon>201508201113228_AddColToRating.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace ImdbWeb.Controllers
+namespace ImdbWeb.Controllers.MVC
 {
 	public class AccountController : Controller
 	{

@@ -1,6 +1,7 @@
 ﻿
 using ImdbWeb.Areas.Admin.Models.MovieModels;
 using ImdbWeb.Controllers;
+using ImdbWeb.Controllers.MVC;
 using MovieDAL;
 using System;
 using System.Collections.Generic;

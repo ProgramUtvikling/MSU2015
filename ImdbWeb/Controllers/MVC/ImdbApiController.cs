@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
 
-namespace ImdbWeb.Controllers
+namespace ImdbWeb.Controllers.MVC
 {
     public class ImdbApiController : ImdbControllerBase
     {

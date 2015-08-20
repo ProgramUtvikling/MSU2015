@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ImdbWeb.Controllers
+namespace ImdbWeb.Controllers.MVC
 {
 	public class PersonController : ImdbControllerBase
 	{

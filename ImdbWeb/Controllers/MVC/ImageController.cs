@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 
-namespace ImdbWeb.Controllers
+namespace ImdbWeb.Controllers.MVC
 {
 	public class ImageController : Controller
 	{
